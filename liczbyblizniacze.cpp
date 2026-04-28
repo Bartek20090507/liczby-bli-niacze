@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// funkcja wykonująca sito Eratostenesa i zwracająca tablicę liczb pierwszych
+// funkcja wykonująca sito Eratostenesa
 vector<bool> sito(int n) {
     vector<bool> liczby(n + 1, true);
 
@@ -20,11 +20,8 @@ vector<bool> sito(int n) {
     return liczby;
 }
 
-int main() {
-    int n = 1000000;
-
-    vector<bool> pierwsze = sito(n);
-
+// funkcja znajdująca liczby bliźniacze
+void liczbyBlizniacze(const vector<bool>& pierwsze, int n) {
     int licznik_par = 0;
     long long suma = 0;
 
@@ -41,6 +38,13 @@ int main() {
 
     cout << "\nLiczba par blizniaczych: " << licznik_par << endl;
     cout << "Suma wszystkich liczb blizniaczych: " << suma << endl;
+}
+
+int main() {
+    int n = 1000000;
+
+    vector<bool> pierwsze = sito(n);
+    liczbyBlizniacze(pierwsze, n);
 
     return 0;
 }
